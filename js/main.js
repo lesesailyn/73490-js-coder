@@ -1,26 +1,69 @@
 
-const productos = [{ nombre: "jabón", stock: 3}, {nombre: "perfumador", stock: 2}, {nombre: "suavizante", stock: 4}]
+const dramas = [
+{
+    id: 1,
+    titulo: "Crash Landing on You",
+    anio: 2019,
+    genero: "Romance",
+    img: "./media/crashlanding.jpg"
+},
+{
+    id: 2,
+    titulo: "Goblin",
+    anio: 2016,
+    genero: "Fantasia",
+    img: "./media/goblin.jpg"
+},
+{
+    id: 3,
+    titulo: "Itaewon Class",
+    anio: 2020,
+    genero: "Drama",
+    img: "./media/itaewonclass.jpg"
+},
+{
+    id: 4,
+    titulo: "Weightlifting Fairy Kim Bok-joo",
+    anio: 2016,
+    genero: "Comedia",
+    img: "./media/kimbokjoo.jpg"
+}
+];
 
-function comprarProducto(producto) {
-    let stock = producto.stock;
-while (stock > 0) {
-    let comprar = prompt("¿Quieres comprar 1 " + producto.nombre + "?");
-    console.log("Respuesta usuario:", comprar);
+let favoritos = JSON.parse(localStorage.getItem("favoritosDramas")) || [];
+const contenedor = document.getElementById("dramas-container");
 
-    if (comprar === "si") {
-        stock = stock - 1;
-        console.log("Compraste 1 " + producto.nombre + ". Quedan " + stock + " unidades");
-    } else if (comprar === "no") {
-        console.log("Podrías probar nuestros otros productos.");
-        break;
-    } else {
-        console.log("Para continuar debes escribir 'si' o 'no'");
-    }
-    if (stock === 0) {
-        console.log("Nos quedamos sin stock! Puedes volver a consultar más tarde.")
-    }
+function mostrarDramas() {
+  contenedor.innerHTML = ""; // Limpiar contenedor
+
+dramas.forEach(drama => {
+    const card = document.createElement("div");
+    card.classList.add("drama-card");
+
+    const esFavorito = favoritos.includes(drama.id);
+
+    card.innerHTML = `
+    <img src="${drama.img}" alt="${drama.titulo}" />
+    <h3>${drama.titulo}</h3>
+    <p>${drama.genero} - ${drama.anio}</p>
+    <button class="favorite-btn ${esFavorito ? "favorito" : ""}" id="fav-${drama.id}">
+        ${esFavorito ? "Quitar favorito" : "Marcar favorito"}
+    </button>
+    `;
+
+    contenedor.appendChild(card);
+
+    const btnFavorito = document.getElementById(`fav-${drama.id}`);
+    btnFavorito.addEventListener("click", () => toggleFavorito(drama.id));
+});
 }
+function toggleFavorito(id) {
+if (favoritos.includes(id)) {
+    favoritos = favoritos.filter(favId => favId !== id);
+} else {
+    favoritos.push(id);
 }
-for (let i = 0; i < productos.length; i++) {
-    comprarProducto(productos[i]);
+localStorage.setItem("favoritosDramas", JSON.stringify(favoritos));
+mostrarDramas(); 
 }
+mostrarDramas();
