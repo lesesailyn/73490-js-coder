@@ -1,0 +1,71 @@
+.volver-inicio {
+    margin-left: 15px;
+    a {
+    text-decoration-line: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    &:hover {
+        color: #d374e9;
+        }
+    }
+}
+#carrito-container {
+    background-color: rgba(164, 201, 224, 0.521);
+    color: rgb(145, 53, 144);
+    padding: 20px;
+    margin: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0px 3px 14px 0px rgba(99,105,208,0.75);
+    -webkit-box-shadow: 0px 3px 14px 0px rgba(99,105,208,0.75);
+    -moz-box-shadow: 0px 3px 14px 0px rgba(99,105,208,0.75);
+}
+.prod-nombre {
+    padding-bottom: 15px;
+    padding-top: 20px;
+    font-size: 28px;
+}
+.prod-precio {
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+.carrito-img {
+    width: 230px;
+    margin: 10px;
+    border-radius: 8px;
+}
+.btn-eliminar {
+    background-color: #9764da;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 100px;
+    margin-top: 60px;
+    cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        transition: background-color 0.2s, transform 0.2s;
+    &:hover{
+        background-color: #d374e9;
+        transform: scale(1.05);
+        }
+}
+.productos-contenedor {
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.carrito-vacio {
+    font-size: 20px;
+    font-weight: 600;
+    color: #7e50b9;
+}
+#total-carrito {
+    color: #9764da;
+    margin-right: 20%;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: right;
+    font-weight: 900;
+}
