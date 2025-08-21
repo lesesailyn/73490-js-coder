@@ -3,28 +3,28 @@ const productos = [
     id: 1,
     nombre: "Queen of Tears OST",
     precio: 30,
-    img: "../media/queenoftears.png",
+    img: "./media/queenoftears.png",
     categoria: "Producto"
   },
   {
     id: 2,
     nombre: "When the Phone Rings OST",
     precio: 25,
-    img: "../media/phonerings.png",
+    img: "./media/phonerings.png",
     categoria: "Producto"
   },
   {
     id: 3,
     nombre: "Goblin OST",
     precio: 35,
-    img: "../media/goblin.png",
+    img: "./media/goblin.png",
     categoria: "Producto"
   },
   {
     id: 4,
     nombre: "The Atypical Family OST",
     precio: 25,
-    img: "../media/atypicalfamily.png",
+    img: "./media/atypicalfamily.png",
     categoria: "Producto"
   }
 ];
